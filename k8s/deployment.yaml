@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: request-counter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: request-counter
+  template:
+    metadata:
+      labels:
+        app: request-counter
+    spec:
+      containers:
+        - name: request-counter
+          image: paulanunda/request-counter:latest
+          ports:
+            - containerPort: 3001
